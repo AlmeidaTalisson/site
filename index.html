@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Lista de celulares</title>
+	<style>
+		input[type=text] {
+			width: 50%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border: 2px solid #ccc;
+			border-radius: 4px;
+		}
+
+		button[type=submit] {
+			background-color: #af4c66;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		button[type=submit]:hover {
+			background-color: #4945a0;
+		}
+
+		table {
+			border-collapse: collapse;
+			width: 100%;
+			margin-top: 20px;
+		}
+
+		th, td {
+			text-align: left;
+			padding: 8px;
+		}
+
+		th {
+			background-color: #4CAF50;
+			color: white;
+		}
+
+		tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+
+		.button {
+			background-color: #4CAF50;
+			border: none;
+			color: white;
+			padding: 5px 10px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 12px;
+			margin: 2px 1px;
+			cursor: pointer;
+			border-radius: 4px;
+		}
+
+		.button:hover {
+			background-color: #45a049;
+		}
+	</style>
+	<script>
+		function search() {
+			// Declare variables
+			var input, filter, table, tr, td, i, txtValue;
+			input = document.getElementById("myInput");
+			filter = input.value.toUpperCase();
+			table = document.getElementById("myTable");
+			tr = table.getElementsByTagName("tr");
+
+			// Loop through all table rows, and hide those who don't match the search query
+			for (i = 0; i < tr.length; i++) {
+				td = tr[i].getElementsByTagName("td");
+				for (var j = 0; j < td.length; j++) {
+					if (td[j]) {
+						txtValue = td[j].textContent || td[j].innerText;
+						if (txtValue.toUpperCase().indexOf(filter) > -1) {
+							tr[i].style.display = "";
+							break;
+						} else {
+							tr[i].style.display = "none";
+						}
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>Celulares Top do Brasil</h1>
+	<input type="text" id="myInput" onkeyup="search()" placeholder="Pesquisar...">
+	<table id="myTable">
+		<thead>
+			<tr>
+				<th>Marca</th>
+				<th>Modelo</th>
+				<th>Preço Médio</th>
+				<th>Quantidade Vendida</th>
+				<th>Ações</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Samsung</td>
+				<td>Galaxy S22</td>
+				<td>R$ 4.499,00</td>
+				<td>1.500.000</td>
+				<td><a href="https://almeidatalisson.github.io/samsung-2" class="button">Detalhes</a> <a href="http://wa.me/5512991896488?text=Olá, Gostei do celular Samsung Galaxi S22. Quais são as formas de pagamento?" class="button">Comprar</a></td>
+			</tr>
+			<tr>
+				<td>Apple</td>
+				<td>iPhone 14</td>
+				<td>R$ 5.999,00</td>
+				<td>1.200.000</td>
+				<td><a href="https://almeidatalisson.github.io/apple" class="button">Detalhes</a> <a href="http://wa.me/5512991896488?text=Olá, quero comprar esse celular, quais são as formas de pagamento?" class="button">Comprar</a></td>
+			</tr>
+			<tr>
+				<td>Xiaomi</td>
+				<td>Mi 12</td>
+				<td>R$ 3.799,00</td>
+        <td>1.200.000</td>
+        <td><a href="https://almeidatalisson.github.io/xiaomi-2" class="button">Detalhes</a> <a href="http://wa.me/5512991896488?text=Olá, quero comprar esse celular, quais são as formas de pagamento?" class="button">Comprar</a></td>
+			</tr>
